@@ -9,8 +9,9 @@ echo Creating $2 MP subdirectories...
 for (( i=1; i<=$2; i++ ))
 do
 	mkdir MP$i
-#		cd MP$i
-#			touch KPOINTS POSCAR INCAR
+	cd MP$i
+	touch KPOINTS POSCAR INCAR
+	cd ..			
 done
 
 echo Finished!
