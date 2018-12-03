@@ -4,9 +4,7 @@
 
 for (( i=$1; i<=$2; i++ ))
 do
-	cd MP$i/
-	vasp_dielectric FixedCell 12
-        echo Submitting MP$i dielectric calculation..
-        cd ..
-	echo Done!
+        vasp_fixedcell MP%i 12 4
+        echo Submitting MP$i fixed cell optimisation...
+        echo Done!
 done
