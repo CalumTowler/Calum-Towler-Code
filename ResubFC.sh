@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #A script to resubmit multiple FixedCell optimisations.
+#MOSTLY UNNCESSARY - CHECK BEFORE USE AND USE ONLY IF NECESSARY
 
 for (( i=$1; i<=$2; i++ ))
 do
