@@ -4,6 +4,7 @@
 
 echo Making parent directory...
 mkdir UsefulFiles_$1
+CellVolLoop.sh $1 $2
 
 for (( i=$2; i<=$3; i++ ))
 do
@@ -13,7 +14,7 @@ do
 	mkdir UsefulFiles_$1/MP$i/FixedCell/Dielectric  
 	echo Copying useful files...
 	cd MP$i
-	cp *.script *.log CONTCAR DOSCAR EIGENVAL INCAR KPOINTS OSZICAR OUTCAR vasprun.xml WAVECAR XDATCAR ../UsefulFiles_$1/MP$i
+	cp *.script *.log CONTCAR DOSCAR EIGENVAL INCAR KPOINTS OSZICAR OUTCAR vasprun.xml WAVECAR XDATCAR CellVol.txt ../UsefulFiles_$1/MP$i
 	cd FixedCell
 	cp *.script *.log CONTCAR DOSCAR EIGENVAL INCAR OSZICAR OUTCAR vasprun.xml WAVECAR XDATCAR ../../UsefulFiles_$1/MP$i/FixedCell
 	cd Dielectric
