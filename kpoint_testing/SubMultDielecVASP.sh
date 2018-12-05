@@ -5,7 +5,7 @@
 for (( i=$1; i<=$2; i++ ))
 do
 	cd MP$i/
-	vasp_dielectric FixedCell 12
+	vasp_dielectric FixedCell 24 48
         echo Submitting MP$i dielectric calculation..
         cd ..
 	echo Done!

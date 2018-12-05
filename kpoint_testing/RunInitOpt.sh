@@ -5,7 +5,7 @@
 for (( i=$1; i<=$2; i++ ))
 do 
 	cd MP$i
-	runvasp MP$i 24 2
+	runvasp MP$i 24 48
 	cd ..
 done
 
