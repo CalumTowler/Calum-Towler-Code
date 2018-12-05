@@ -4,7 +4,10 @@
 
 echo Making parent directory...
 mkdir UsefulFiles_$1
-CellVolLoop.sh $1 $2
+echo Extracting cell volumes...
+CellVolLoop.sh $2 $3
+echo Extracting phonon frequencies...
+PhoFreqLoop.sh $2 $3
 
 for (( i=$2; i<=$3; i++ ))
 do
@@ -18,7 +21,7 @@ do
 	cd FixedCell
 	cp *.script *.log CONTCAR DOSCAR EIGENVAL INCAR OSZICAR OUTCAR vasprun.xml WAVECAR XDATCAR ../../UsefulFiles_$1/MP$i/FixedCell
 	cd Dielectric
-	cp *.script *.log INCAR OSZICAR OUTCAR vasprun.xml WAVECAR ../../../UsefulFiles_$1/MP$i/FixedCell/Dielectric
+	cp *.script *.log INCAR OSZICAR OUTCAR vasprun.xml WAVECAR PhoFreq.txt ../../../UsefulFiles_$1/MP$i/FixedCell/Dielectric
 	cd ../../..
 	echo Completed MP$i, moving to next folder...
 done

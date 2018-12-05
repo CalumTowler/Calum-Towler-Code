@@ -5,7 +5,8 @@
 for (( i=$1; i<=$2; i++ ))
 do
 	cd MP$i
-	grep volume OUTCAR > CellVol.txt
+	echo MP$i > CellVol.txt
+	grep volume OUTCAR >> CellVol.txt
 	echo Finished with MP$i, moving to next directory...
 	cd ..
 	echo Finished!
