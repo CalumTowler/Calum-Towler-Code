@@ -4,7 +4,7 @@
 
 for (( i=$1; i<=$2; i++ ))
 do
-        vasp_fixedcell MP%i 12 4
+        vasp_fixedcell MP$i 12 4
         echo Submitting MP$i fixed cell optimisation...
         echo Done!
 done
