@@ -2,6 +2,10 @@
 
 # A script to produce and submit multiple calculations which test the convergance of the cutoff energy.
 
+mkdir EnergyConvergance
+cp INCAR KPOINTS POSCAR POTCAR EnergyConvergance
+cd EnergyConvergance
+
 for (( i=$1; i<=$2; i+=50 ))
 do 
 	echo Making directory...
