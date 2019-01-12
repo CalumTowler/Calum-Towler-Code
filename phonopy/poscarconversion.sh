@@ -12,7 +12,5 @@ do
 	mv POSCAR-0$i POSCAR-$i
 done
 
-#for (( i=100; i<=$1; i++ ))
-#do
-#	mv POSCAR-$i
+
 	
