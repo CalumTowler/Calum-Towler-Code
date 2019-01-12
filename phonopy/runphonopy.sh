@@ -8,22 +8,11 @@
 #Loop to move correct files and rename them for VASP.
 for (( i=1; i<=$2; i++ ))
 do
-#if [$2 -gt 9]
-#then
-# 	mkdir POSCAR_$i
-#       	mv POSCAR-0$i POSCAR_$i/POSCAR
-#       	cp POTCAR KPOINTS INCAR.supercell POSCAR_$i
-#       	mv INCAR.supercell INCAR
-#       	mkdir BORN
-#       	mv INCAR.born BORN/INCAR
-#       	mv SPOSCAR BORN/POSCAR
-#       	cp KPOINTS POTCAR BORN
-#else
         mkdir POSCAR_$i
-       	mv POSCAR-00$i POSCAR_$i
+       	mv POSCAR-$i POSCAR_$i
        	cp POTCAR KPOINTS INCAR.supercell POSCAR_$i
 	cd POSCAR_$i
-	mv POSCAR-00$i POSCAR
+	mv POSCAR-$i POSCAR
 	mv INCAR.supercell INCAR
 	echo Finished with POSCAR $i
 	cd ..
@@ -48,6 +37,6 @@ do
 done
 
 cd BORN
-runvasp $1_Born $3 48
+runvasp $1_Born 1 48
 cd ..
 echo Submitted BORN VASP job
