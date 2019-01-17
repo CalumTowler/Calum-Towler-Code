@@ -1,11 +1,8 @@
 #!/bin/bash
 
 # A script to produce the necessary directories and copy files to them for a phonopy job.
-# runphonopy [Jobname] [Final POSCAR Directory] [Number of cores (4 for small)]
-# ToDo:  add functionality to make INCARs |
-
-#Script that generates the INCAR files.
-create_phonopy_INCARs.sh
+# runphonopy  [Jobname] [Final POSCAR Directory] 
+# ToDo:  
 
 #Script that renames the POSCAR files.
 poscarconversion.sh
@@ -36,7 +33,7 @@ echo Finished with BORN
 for (( i=1; i<=$2; i++ ))
 do
         cd POSCAR_$i
-        runvasp $1_$i $3 48
+        runvasp $1_$i 1 48
 	cd ..
 	echo Submitted POSCAR $i VASP Job
 done
