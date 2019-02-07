@@ -9,10 +9,11 @@ do
         cd MP$i/
 	cat CellDim.txt >> ../AllCellDims
 	cat CellVol.txt >> ../AllCellVols
-	cd FixedCell/Dielectric
-	cat PhoFreq.txt >> ../../../AllPhoFreqs
+#	cd FixedCell/Dielectric
+#	cat PhoFreq.txt >> ../../../AllPhoFreqs
         echo Finished with MP$i, moving to next directory...
-        cd ../../..
+	cd ..
+#        cd ../../..
         echo Finished!
 done
 
