@@ -7,10 +7,10 @@
 #Loop to move correct files and rename them for VASP.
 for (( i=1; i<=9; i++ ))
 do
-        mkdir POSCAR_00$i
-       	mv POSCAR-00$i POSCAR_00$i
-       	cp POTCAR KPOINTS INCAR.supercell POSCAR_00$i
-	cd POSCAR_00$i
+        mkdir POSCAR00$i
+       	mv POSCAR-00$i POSCAR00$i
+       	cp POTCAR KPOINTS INCAR.supercell POSCAR00$i
+	cd POSCAR00$i
 	mv POSCAR-00$i POSCAR
 	mv INCAR.supercell INCAR
 	echo Finished with POSCAR $i
@@ -19,10 +19,10 @@ done
 
 for (( i=10; i<=99; i++ ))
 do
-        mkdir POSCAR_0$i
-        mv POSCAR-0$i POSCAR_0$i
-        cp POTCAR KPOINTS INCAR.supercell POSCAR_0$i
-        cd POSCAR_0$i
+        mkdir POSCAR0$i
+        mv POSCAR-0$i POSCAR0$i
+        cp POTCAR KPOINTS INCAR.supercell POSCAR0$i
+        cd POSCAR0$i
         mv POSCAR-0$i POSCAR
         mv INCAR.supercell INCAR
         echo Finished with POSCAR $i
@@ -31,10 +31,10 @@ done
 
 for (( i=100; i<=$2; i++ ))
 do
-        mkdir POSCAR_$i
-        mv POSCAR-$i POSCAR_$i
-        cp POTCAR KPOINTS INCAR.supercell POSCAR_$i
-        cd POSCAR_$i
+        mkdir POSCAR$i
+        mv POSCAR-$i POSCAR$i
+        cp POTCAR KPOINTS INCAR.supercell POSCAR$i
+        cd POSCAR$i
         mv POSCAR-$i POSCAR
         mv INCAR.supercell INCAR
         echo Finished with POSCAR $i
@@ -53,7 +53,7 @@ echo Finished with BORN
 #Loop to run VASP jobs in each displacement folder.
 for (( i=1; i<=9; i++ ))
 do
-        cd POSCAR_00$i
+        cd POSCAR00$i
         runvasp $1_$i 1 48
 	cd ..
 	echo Submitted POSCAR $i VASP Job
@@ -61,7 +61,7 @@ done
 
 for (( i=10; i<=99; i++ ))
 do
-        cd POSCAR_0$i
+        cd POSCAR0$i
         runvasp $1_$i 1 48
         cd ..
         echo Submitted POSCAR $i VASP Job
@@ -69,7 +69,7 @@ done
 
 for (( i=100; i<=$2; i++ ))
 do
-        cd POSCAR_$i
+        cd POSCAR$i
         runvasp $1_$i 1 48
         cd ..
         echo Submitted POSCAR $i VASP Job

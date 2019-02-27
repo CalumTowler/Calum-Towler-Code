@@ -5,7 +5,7 @@ mkdir KptConverganceGO
 cp INCAR.GO POSCAR POTCAR KptConverganceGO
 cd KptConverganceGO
 mv INCAR.GO INCAR
-echo ENCUT = 200 >> INCAR
+echo ENCUT = $3 >> INCAR
 
 echo Creating MP subdirectories...
 for (( i=$1; i<=$2; i++ ))

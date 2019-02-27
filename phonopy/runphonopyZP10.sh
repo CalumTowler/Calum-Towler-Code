@@ -4,11 +4,8 @@
 # runphonopy  [Jobname] [Final POSCAR Directory] 
 # ToDo:  
 
-#Script that renames the POSCAR files.
-#poscarconversion.sh
-
 #Loop to move correct files and rename them for VASP.
-for (( i=1; i<=$2; i++ ))
+for (( i=1; i<=9; i++ ))
 do
         mkdir POSCAR00$i
        	mv POSCAR-00$i POSCAR00$i
@@ -18,6 +15,18 @@ do
 	mv INCAR.supercell INCAR
 	echo Finished with POSCAR $i
 	cd ..
+done
+
+for (( i=10; i<=$2; i++ ))
+do
+        mkdir POSCAR0$i
+        mv POSCAR-0$i POSCAR0$i
+        cp POTCAR KPOINTS INCAR.supercell POSCAR0$i
+        cd POSCAR0$i
+        mv POSCAR-0$i POSCAR
+        mv INCAR.supercell INCAR
+        echo Finished with POSCAR $i
+        cd ..
 done
 
 mkdir BORN
@@ -30,12 +39,20 @@ cd ..
 echo Finished with BORN
 
 #Loop to run VASP jobs in each displacement folder.
-for (( i=1; i<=$2; i++ ))
+for (( i=1; i<=9; i++ ))
 do
         cd POSCAR00$i
         runvasp $1_$i 1 48
 	cd ..
 	echo Submitted POSCAR $i VASP Job
+done
+
+for (( i=10; i<=$2; i++ ))
+do
+        cd POSCAR0$i
+        runvasp $1_$i 1 48
+        cd ..
+        echo Submitted POSCAR $i VASP Job
 done
 
 cd BORN
