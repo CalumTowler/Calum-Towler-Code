@@ -3,9 +3,9 @@
 # phono_kptconvergence Jobname FinalDirNo.
 
 read OrderofMag
-mkdir KptConvergance
-cp INCAR.born INCAR.supercell POSCAR POTCAR KptConvergance
-cd KptConvergance
+mkdir KptConvergence
+cp INCAR.born INCAR.supercell POSCAR POTCAR KptConverge	nce
+cd KptConvergence
 echo ENCUT = 300 >> INCAR.born
 echo ENCUT = 300 >> INCAR.supercell
 

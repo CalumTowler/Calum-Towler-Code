@@ -16,7 +16,7 @@ echo Finished with energy convergence...
 cd ..
 
 echo Post-processing k-point convergence...
-cd KptConvergance
+cd KptConvergence
 for (( i=3; i<=11; i++ ))
 do
         cd MP$i
